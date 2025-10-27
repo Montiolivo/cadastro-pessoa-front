@@ -27,6 +27,7 @@ const schema = yup.object({
 export default function PersonForm() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const token = localStorage.getItem("token");
   const {
     register,
     handleSubmit,
@@ -37,8 +38,11 @@ export default function PersonForm() {
   useEffect(() => {
     if (id) {
       api
-        .get(`/Pessoa/${id}`)
+        .get(`/Pessoa/${id}`,  {
+        headers: { Authorization: `Bearer ${token}` },
+      })
         .then((res) => {
+          console.log('res', res);
           const p = res.data;
           setValue("nome", p.nome);
           setValue("sexo", p.sexo);
@@ -53,7 +57,7 @@ export default function PersonForm() {
         })
         .catch(() => alert("Erro ao carregar registro"));
     }
-  }, [id, setValue]);
+  }, [id, setValue, token]);
 
   async function onSubmit(data) {
     try {

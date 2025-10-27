@@ -27,8 +27,7 @@ export default function PersonList() {
   }, []);
 
   async function handleDelete(id) {
-    // eslint-disable-next-line no-restricted-globals
-    if (!confirm("Confirmar exclusão?")) return;
+    if (!window.confirm("Confirmar exclusão?")) return;
     try {
       await api.delete(`/pessoa/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
