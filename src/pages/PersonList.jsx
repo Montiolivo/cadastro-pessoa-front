@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback  } from "react";
 import api from "../services/api";
 import PersonCard from "../components/PersonCard";
 
@@ -8,23 +8,24 @@ export default function PersonList() {
   const [error, setError] = useState(null);
   const token = localStorage.getItem("token");
 
-  async function load() {
+ const load = useCallback(async () => {
     setLoading(true);
     try {
       const res = await api.get("/pessoa", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setPeople(res.data);
+      setError(null);
     } catch (err) {
       setError(err.message || "Erro ao carregar");
     } finally {
       setLoading(false);
     }
-  }
+  }, [token]); // token é dependência, pois é usado dentro da função
 
   useEffect(() => {
     load();
-  }, []);
+  }, [load]);
 
   async function handleDelete(id) {
     if (!window.confirm("Confirmar exclusão?")) return;
