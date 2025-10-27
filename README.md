@@ -1,70 +1,94 @@
-# Getting Started with Create React App
+#🧾 CadastroPessoa Front-End
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Aplicação React.js desenvolvida para consumo da API CadastroPessoa, permitindo o cadastro, listagem e exclusão de pessoas.
+O projeto utiliza autenticação via JWT e foi publicado no Azure App Service.
 
-## Available Scripts
+🌐 Aplicação publicada:
+👉 https://cadastropessoafront-c7f9fpcpaxf8d8ch.brazilsouth-01.azurewebsites.net/
 
-In the project directory, you can run:
+##🚀 Funcionalidades
 
-### `npm start`
+Login com autenticação via token JWT.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Listagem de pessoas cadastradas.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Cadastro de novas pessoas.
 
-### `npm test`
+Edição e exclusão de registros.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Integração com API hospedada no Azure.
 
-### `npm run build`
+Controle de acesso por usuário autenticado.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+##🔐 Usuários de Acesso (para testes)
+Usuário	Senha
+admin	123456
+usuario	senha123
+##⚙️ Tecnologias Utilizadas
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+React.js 18+
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Axios para requisições HTTP
 
-### `npm run eject`
+React Router DOM para navegação
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Material-UI (MUI) para interface visual
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Vite / CRA (dependendo da sua config)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Context API / Hooks para controle de estado
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+JWT Authentication
 
-## Learn More
+##🧩 Estrutura de Pastas
+src/
+ ├── components/
+ │   ├── PersonCard.jsx
+ │   └── ...
+ ├── pages/
+ │   ├── Login.jsx
+ │   ├── PersonList.jsx
+ │   └── PersonForm.jsx
+ ├── services/
+ │   └── api.js
+ ├── App.jsx
+ └── index.jsx
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+##🔧 Configuração do Ambiente
+1. Clonar o repositório
+git clone https://github.com/SEU_USUARIO/cadastro-pessoa-front.git
+cd cadastro-pessoa-front
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. Instalar dependências
+npm install
 
-### Code Splitting
+3. Configurar variáveis de ambiente
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Crie um arquivo .env na raiz do projeto com o seguinte conteúdo:
 
-### Analyzing the Bundle Size
+REACT_APP_API_URL=https://cadastropessoaapi-eceef3euh4e0hdbs.brazilsouth-01.azurewebsites.net/api
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+##▶️ Executar o projeto localmente
+npm start
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+O projeto será iniciado em:
 
-### Advanced Configuration
+http://localhost:3000
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+##🏗️ Build para Produção
+npm run build
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Os arquivos otimizados serão gerados na pasta /build.
 
-### `npm run build` fails to minify
+🔗 API Back-End
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+A aplicação consome a API .NET hospedada no Azure:
+
+🔹 URL da API:
+https://cadastropessoaapi-eceef3euh4e0hdbs.brazilsouth-01.azurewebsites.net/swagger
+
+📜 Licença
+
+Este projeto é de uso livre para fins educacionais e demonstração técnica.
