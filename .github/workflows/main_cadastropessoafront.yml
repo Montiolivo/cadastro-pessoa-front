@@ -45,6 +45,9 @@ jobs:
         with:
           name: node-app
 
+      - name: Prepare build folder for deploy
+        run: mv node-app build
+
       - name: Azure Login
         uses: azure/login@v2
         with:
@@ -57,5 +60,5 @@ jobs:
         with:
           app-name: 'CadastroPessoaFront'
           slot-name: 'Production'
-          package: build  
-          clean: true      
+          package: build 
+          clean: true
