@@ -42,7 +42,6 @@ export default function PersonForm() {
         headers: { Authorization: `Bearer ${token}` },
       })
         .then((res) => {
-          console.log('res', res);
           const p = res.data;
           setValue("nome", p.nome);
           setValue("sexo", p.sexo);
