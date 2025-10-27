@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "../services/api";
 import PersonCard from "../components/PersonCard";
-import { Link } from "react-router-dom";
 
 export default function PersonList() {
   const [people, setPeople] = useState([]);
@@ -41,18 +40,16 @@ export default function PersonList() {
   }
 
   return (
-    <div>
-      <div className="list-header">
+    <div className="page-container">
+      <div className="page-header">
         <h2>Registros</h2>
-        <Link to="/new" className="btn">
-          + Novo
-        </Link>
       </div>
 
-      {loading && <p>Carregando...</p>}
-      {error && <p className="error">{error}</p>}
-
-      {!loading && people.length === 0 && <p>Sem registros.</p>}
+      {loading && <p className="status-text">Carregando...</p>}
+      {error && <p className="status-text" style={{ color: "#e53935" }}>{error}</p>}
+      {!loading && people.length === 0 && (
+        <p className="status-text">Sem registros.</p>
+      )}
 
       <div className="grid">
         {people.map((person) => (

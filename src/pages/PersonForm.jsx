@@ -57,13 +57,8 @@ export default function PersonForm() {
 
   async function onSubmit(data) {
     try {
-      const token = localStorage.getItem("token"); 
-
-    const config = {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    };
+      const token = localStorage.getItem("token");
+      const config = { headers: { Authorization: `Bearer ${token}` } };
 
       if (id) {
         await api.put(`/Pessoa/${id}`, data, config);
@@ -75,52 +70,51 @@ export default function PersonForm() {
       alert("Erro ao salvar: " + (err.response?.data?.message || err.message));
     }
   }
+
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="form">
-      <h2>{id ? "Editar" : "Novo"} cadastro</h2>
+    <div className="form-page">
+      <form onSubmit={handleSubmit(onSubmit)} className="form-card">
+        <h2 className="form-title">{id ? "Editar" : "Novo"} Cadastro</h2>
 
-      <label>Nome *</label>
-      <input {...register("nome")} />
-      <p className="field-error">{errors.nome?.message}</p>
+        <label className="form-label">Nome *</label>
+        <input {...register("nome")} className="form-input" />
+        <p className="form-error">{errors.nome?.message}</p>
 
-      <label>Sexo</label>
-      <select {...register("sexo")}>
-        <option value="">—</option>
-        <option value="M">Masculino</option>
-        <option value="F">Feminino</option>
-        <option value="O">Outro</option>
-      </select>
+        <label className="form-label">Sexo</label>
+        <select {...register("sexo")} className="form-select">
+          <option value="">—</option>
+          <option value="M">Masculino</option>
+          <option value="F">Feminino</option>
+          <option value="O">Outro</option>
+        </select>
 
-      <label>E-mail</label>
-      <input {...register("email")} />
-      <p className="field-error">{errors.email?.message}</p>
+        <label className="form-label">E-mail</label>
+        <input {...register("email")} className="form-input" />
+        <p className="form-error">{errors.email?.message}</p>
 
-      <label>Data de Nascimento *</label>
-      <input type="date" {...register("dataNascimento")} />
-      <p className="field-error">{errors.dataNascimento?.message}</p>
+        <label className="form-label">Data de Nascimento *</label>
+        <input type="date" {...register("dataNascimento")} className="form-input" />
+        <p className="form-error">{errors.dataNascimento?.message}</p>
 
-      <label>Naturalidade</label>
-      <input {...register("naturalidade")} />
+        <label className="form-label">Naturalidade</label>
+        <input {...register("naturalidade")} className="form-input" />
 
-      <label>Nacionalidade</label>
-      <input {...register("nacionalidade")} />
+        <label className="form-label">Nacionalidade</label>
+        <input {...register("nacionalidade")} className="form-input" />
 
-      <label>CPF *</label>
-      <input {...register("cpf")} />
-      <p className="field-error">{errors.cpf?.message}</p>
+        <label className="form-label">CPF *</label>
+        <input {...register("cpf")} className="form-input" />
+        <p className="form-error">{errors.cpf?.message}</p>
 
-      <div className="form-actions">
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className="btn btn-primary"
-        >
-          Salvar
-        </button>
-        <button type="button" onClick={() => navigate("/")} className="btn">
-          Cancelar
-        </button>
-      </div>
-    </form>
+        <div className="form-actions">
+          <button type="submit" disabled={isSubmitting} className="btn-primary">
+            {isSubmitting ? "Salvando..." : "Salvar"}
+          </button>
+          <button type="button" onClick={() => navigate("/")} className="btn-secondary">
+            Cancelar
+          </button>
+        </div>
+      </form>
+    </div>
   );
 }
