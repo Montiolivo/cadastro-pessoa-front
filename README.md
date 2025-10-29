@@ -69,7 +69,7 @@ npm install
 
 Crie um arquivo .env na raiz do projeto com o seguinte conteúdo:
 
-REACT_APP_API_URL=https://cadastropessoaapi-eceef3euh4e0hdbs.brazilsouth-01.azurewebsites.net/api
+REACT_APP_API_URL=https://cadastropessoaapi-eceef3euh4e0hdbs.brazilsouth-01.azurewebsites.net/api/v1
 
 ## ▶️ Executar o projeto localmente
 npm start
